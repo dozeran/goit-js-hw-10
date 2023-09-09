@@ -24,7 +24,7 @@ selectEl.addEventListener('change', e => {
   loaderEl.style.display = 'block';
   const breedId = e.target.value;
   fetchCatByBreed(breedId).then(renderCatInfo).catch(RequestError);
-  loaderEl.style.display = 'none';
+
   catInfoEl.style.display = 'flex';
 });
 
@@ -45,6 +45,7 @@ function renderCatInfo(catFullData) {
   <h2>${name}</h2>
   <p>${description}</p>
   <p><strong>Temperament:</strong> ${temperament}</p></div>`;
+  loaderEl.style.display = 'none';
 }
 
 function RequestError() {
